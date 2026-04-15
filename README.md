@@ -6,7 +6,7 @@
 
 This fork is based on the original Yamaha receiver plugin, but is intentionally focused on Yamaha streamers/amplifiers that do not expose the same input metadata as classic AV receivers.
 
-<img src="branding/product.png" width="300">
+<img src="branding/product.jpg" width="300">
 
 ## Supported Devices
 

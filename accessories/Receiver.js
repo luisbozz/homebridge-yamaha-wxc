@@ -113,6 +113,13 @@ class AUDIO_RECEIVER {
 
 			inputService.getCharacteristic(Characteristic.ConfiguredName)
 				.on('set', (name, callback) => {
+					if (shouldIgnoreDefaultInputName(input.name, name)) {
+						this.log.easyDebug(`${this.name} - Ignoring generic HomeKit input name "${name}" for "${input.name}"`)
+						inputService.getCharacteristic(Characteristic.ConfiguredName).updateValue(input.name)
+						callback()
+						return
+					}
+
 					this.log.easyDebug(`${this.name} - Setting new input ConfiguredName: from ${input.name} to ${name}`)
 					input.name = name
 					this.storage.setItem('cachedDevices', this.cachedDevices)
@@ -259,3 +266,18 @@ class AUDIO_RECEIVER {
 
 
 module.exports = AUDIO_RECEIVER
+
+const shouldIgnoreDefaultInputName = function(currentName, requestedName) {
+	if (!isGenericInputName(requestedName))
+		return false
+
+	return !isGenericInputName(currentName)
+}
+
+const isGenericInputName = function(name) {
+	if (!name)
+		return false
+
+	return /^input(?: source)?(?: \d+)?$/i.test(name)
+		|| /^eingabequelle(?: \d+)?$/i.test(name)
+}

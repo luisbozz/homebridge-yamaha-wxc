@@ -71,3 +71,4 @@ test.js
 # ignore all logs
 *.log
 M-D
+*.tgz

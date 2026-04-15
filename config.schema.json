@@ -1,15 +1,15 @@
 {
-  "pluginAlias": "YamahaReceiver",
+  "pluginAlias": "YamahaWxcWxa50",
   "pluginType": "platform",
   "singular": true,
-  "headerDisplay": "**IN DEVELOPMENT** - Homebridge plugin for Yamaha Audio Receivers",
-  "footerDisplay": "Created by @nitaybz",
+  "headerDisplay": "Homebridge plugin for Yamaha WXC-50 and WXA-50",
+  "footerDisplay": "Focused fork for Yamaha WXC-50 / WXA-50",
   "schema": {
     "type": "object",
     "properties": {
       "statePollingInterval": {
         "title": "Status Polling Interval in Seconds",
-        "description": "Time in seconds between each status polling of the avr devices",
+        "description": "Time in seconds between each status polling cycle",
         "default": 30,
         "type": "integer",
         "minimum": 3,
@@ -26,7 +26,7 @@
         "type": "array",
         "required": false,
         "items": {
-          "title": "Audio Receivers",
+          "title": "WXC-50 / WXA-50 Devices",
           "type": "object",
           "properties": {
             "name": {
@@ -41,7 +41,7 @@
             },
             "volumeAccessory": {
               "title": "External Volume Accessory",
-              "description": "Extra accessory for better volume control",
+              "description": "Extra accessory for easier volume control",
               "type": "string",
               "required": false,
               "oneOf": [
@@ -60,7 +60,7 @@
               ]
             },
             "minVolume": {
-              "title": "Main Zone Min Volume",
+              "title": "Min Volume",
               "description": "Adjust if the minimum volume in HomeKit is too high or too low",
               "default": -80,
               "type": "integer",
@@ -68,71 +68,8 @@
               "maximum": 100
             },
             "maxVolume": {
-              "title": "Main Zone Max Volume",
+              "title": "Max Volume",
               "description": "Adjust if the maximum volume in HomeKit is too high or too low",
-              "default": -10,
-              "type": "integer",
-              "minimum": -100,
-              "maximum": 100
-            },
-            "enableZone2": {
-              "title": "Enable Zone 2",
-              "type": "boolean",
-              "required": false
-            },
-            "zone2MinVolume": {
-              "title": "Zone 2 Min Volume",
-              "description": "Adjust if the minimum volume in HomeKit is too high or too low",
-              "default": -80,
-              "type": "integer",
-              "minimum": -100,
-              "maximum": 100
-            },
-            "zone2MaxVolume": {
-              "title": "Zone 2 Max Volume",
-              "description": "Adjust if the maximum volume in HomeKit is too high or too low",
-              "default": -10,
-              "type": "integer",
-              "minimum": -100,
-              "maximum": 100
-            },
-            "enableZone3": {
-              "title": "Enable Zone 3",
-              "type": "boolean",
-              "required": false
-            },
-            "zone3MinVolume": {
-              "title": "Zone 3 Min Volume",
-              "description": "Adjust if the minimum volume in HomeKit is too high or too low",
-              "default": -80,
-              "type": "integer",
-              "minimum": -100,
-              "maximum": 100
-            },
-            "zone3MaxVolume": {
-              "title": "Zone 3 Max Volume",
-              "description": "Adjust if the minimum volume in HomeKit is too high or too low",
-              "default": -10,
-              "type": "integer",
-              "minimum": -100,
-              "maximum": 100
-            },
-            "enableZone4": {
-              "title": "Enable Zone 4",
-              "type": "boolean",
-              "required": false
-            },
-            "zone4MinVolume": {
-              "title": "Zone 4 Min Volume",
-              "description": "Adjust if the minimum volume in HomeKit is too high or too low",
-              "default": -80,
-              "type": "integer",
-              "minimum": -100,
-              "maximum": 100
-            },
-            "zone4MaxVolume": {
-              "title": "Zone 4 Max Volume",
-              "description": "Adjust if the minimum volume in HomeKit is too high or too low",
               "default": -10,
               "type": "integer",
               "minimum": -100,
@@ -153,52 +90,22 @@
     {
       "key": "receivers",
       "type": "array",
-      "title": "Audio Receivers",
+      "title": "WXC-50 / WXA-50 Devices",
       "orderable": false,
-      "buttonText": "Add Receiver",
+      "buttonText": "Add Device",
       "expandable": true,
       "expanded": true,
       "items": [
         {
           "type": "section",
           "expandable": false,
-          "title": "Configurations (Main Zone)",
+          "title": "Configuration",
           "items": [
             "receivers[].name",
             "receivers[].ip",
             "receivers[].volumeAccessory",
             "receivers[].minVolume",
-            "receivers[].maxVolume",
-            {
-              "type": "section",
-              "expandable": true,
-              "title": "Zone 2",
-              "items": [
-                "receivers[].enableZone2",
-                "receivers[].zone2MinVolume",
-                "receivers[].zone2MaxVolume"
-              ]
-            },
-            {
-              "type": "section",
-              "expandable": true,
-              "title": "Zone 3",
-              "items": [
-                "receivers[].enableZone3",
-                "receivers[].zone3MinVolume",
-                "receivers[].zone3MaxVolume"
-              ]
-            },
-            {
-              "type": "section",
-              "expandable": true,
-              "title": "Zone 4",
-              "items": [
-                "receivers[].enableZone4",
-                "receivers[].zone4MinVolume",
-                "receivers[].zone4MaxVolume"
-              ]
-            }
+            "receivers[].maxVolume"
           ]
         }
       ]

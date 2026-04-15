@@ -6,36 +6,19 @@
     "pin": "031-45-154"
   },
 
-  "description": "This is an example configuration for homebridge-yamaha-receiver",
+  "description": "This is an example configuration for homebridge-yamaha-wxc-wxa-50",
   "platforms": [
     {
-      "platform": "YamahaReceiver",
-      "discovery": true,
+      "platform": "YamahaWxcWxa50",
       "debug": false,
       "statePollingInterval": 10,
       "receivers": [
         {
-          "name": "My AVR",
-          "ip": "10.0.0.2",
+          "name": "Wohnzimmer",
+          "ip": "192.168.178.149",
           "minVolume": -80,
-          "maxVolume": 10,
+          "maxVolume": -10,
           "volumeAccessory": "fan"
-        },
-        {
-          "name": "My Yamaha",
-          "ip": "10.0.0.5",
-          "minVolume": -80,
-          "maxVolume": 10,
-          "volumeAccessory": "bulb",
-          "enableZone2": true,
-          "zone2MinVolume": -60,
-          "zone2MaxVolume": 30,
-          "enableZone3": true,
-          "zone3MinVolume": -60,
-          "zone3MaxVolume": 20,
-          "enableZone4": true,
-          "zone4MinVolume": -60,
-          "zone4MaxVolume": 10
         }
       ]
     }

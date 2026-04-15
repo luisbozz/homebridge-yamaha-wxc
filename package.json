@@ -1,7 +1,7 @@
 {
   "name": "homebridge-yamaha-wxc-wxa-50",
   "description": "Homebridge plugin for Yamaha WXC-50 and WXA-50",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "repository": {
     "type": "git",
     "url": "git://github.com/luisbozz/homebridge-yamaha-wxc.git"

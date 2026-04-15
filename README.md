@@ -103,16 +103,3 @@ Then start Homebridge again and pair the accessory again.
 - Generic HomeKit placeholder names are ignored so they do not overwrite the real source names.
 - Existing cached placeholder names such as `Input` or `Eingabequelle` are refreshed automatically.
 
-## GitHub Releases
-
-This repository includes a GitHub Actions workflow that automatically builds a release package and uploads the `.tgz` file to a GitHub release whenever you push a version tag like `v0.1.1`.
-
-Release flow:
-
-```bash
-git commit -am "Release v0.1.1"
-git tag v0.1.1
-git push origin main --tags
-```
-
-After the workflow finishes, the release page will contain a downloadable `.tgz` asset that can be installed directly in Homebridge.
